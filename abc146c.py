@@ -1,19 +1,27 @@
-a, b, x = map(int,input().split())
 
-ok = 0
-ng = 10 ** 9 + 1
+def map_str(): return map(input().split())
+def map_int(): return map(int, input().split())
+def lmap_int(): return list(map(int, input().split()))
+def lmap_str(): return list(map(input().split()))
 
-# 条件を満たしていればTrue, そうでなければFalseを返す関数ということ
-def is_ok(n):
-   return a*n + b*len(str(n)) <= x
+def is_ok(a, b, x, n):
+    return a*n + b*len(str(n)) <= x
 
-while ng-ok > 1:
-    mid = int((ok+ng) / 2) # 平均(小数切り捨て)
-    if is_ok(mid):
-        # midがokなら，okをmidまで持ってくる
-        ok = mid
-    else:
-        # midがngなら，ngをmidまで持ってくる
-    	ng = mid
+def main():
+    a, b, x = map_int()
 
-print(ok)
+    ok = 0
+    ng = 10 ** 9 + 1
+
+    while ng - ok > 1:
+        mid = (ok + ng) // 2
+        if is_ok(a, b, x, mid):
+            ok = mid
+        else:
+            ng = mid
+    print(ok)
+
+
+
+if __name__ == '__main__':
+    main()
