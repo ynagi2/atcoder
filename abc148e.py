@@ -10,17 +10,18 @@ def lmap_int(): return list(map(int, input().split()))
 def lmap_str(): return list(map(input().split()))
 # mod = 10**9 + 7
 
-def gcd(a, b):
-    if b == 0:
-        return a
-    else:
-        return gcd(b, a%b)
-
+# 単に5**1, 5**2, ...でそれぞれ割り切れる個数をカウントすればよい
 def main():
-    a, b = map_int()
-    print(a*b//gcd(a, b))
-
-
+    n = i_input()
+    a = 10
+    ans = 0
+    if n % 2 == 1:
+        print(0)
+    else:
+        while a <= n:
+            ans += n//a
+            a *= 5
+        print(ans)
 
 if __name__ == '__main__':
     main()

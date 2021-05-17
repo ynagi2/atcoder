@@ -10,16 +10,15 @@ def lmap_int(): return list(map(int, input().split()))
 def lmap_str(): return list(map(input().split()))
 # mod = 10**9 + 7
 
-def gcd(a, b):
-    if b == 0:
-        return a
-    else:
-        return gcd(b, a%b)
-
 def main():
-    a, b = map_int()
-    print(a*b//gcd(a, b))
-
+    n = i_input()
+    u = input()
+    u = u.split()
+    s, t = u[0], u[1]
+    ans = ""
+    for i in range(n):
+        ans += s[i] + t[i]
+    print(ans)
 
 
 if __name__ == '__main__':
